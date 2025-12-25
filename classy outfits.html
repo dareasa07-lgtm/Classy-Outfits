@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Classy Outfits | Monochrome Streetwear</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    body { background:#ffffff; color:#111111; }
+    a { color:inherit; text-decoration:none; }
+    button { cursor:pointer; }
+
+    header, main, footer { max-width:1200px; margin:auto; padding:1.1rem 1rem; }
+
+    /* NAVBAR */
+    .top-bar {
+      display:flex; justify-content:space-between; align-items:center;
+      border-bottom:1px solid #e5e5e5; padding-bottom:0.7rem;
+    }
+    .logo {
+      font-weight:700; letter-spacing:0.18em; text-transform:uppercase;
+      font-size:0.95rem;
+    }
+    .nav-center {
+      display:flex; gap:1.2rem; font-size:0.9rem;
+    }
+    .nav-center a { opacity:0.7; }
+    .nav-center a:hover { opacity:1; }
+    .nav-right {
+      display:flex; gap:0.9rem; align-items:center; font-size:0.78rem;
+      text-transform:uppercase; letter-spacing:0.1em;
+    }
+    .nav-icon-btn {
+      border:none; background:transparent; font-size:0.78rem;
+      display:flex; align-items:center; gap:0.25rem; opacity:0.8;
+    }
+    .nav-icon-btn span.icon { font-size:0.9rem; }
+
+    /* HERO */
+    .hero {
+      display:grid; grid-template-columns: minmax(0,1.4fr) minmax(0,1fr);
+      gap:1.5rem; padding:1.6rem 0 0.8rem;
+    }
+    .hero-main-title {
+      text-transform:uppercase; letter-spacing:0.18em; font-size:0.78rem; opacity:0.65;
+      margin-bottom:0.6rem;
+    }
+    .hero-title {
+      font-size:2.3rem; line-height:1.05; margin-bottom:0.7rem;
+    }
+    .hero-sub { font-size:0.93rem; opacity:0.8; max-width:460px; }
+    .hero-cta {
+      margin-top:1.25rem; display:flex; gap:0.8rem; flex-wrap:wrap;
+    }
+    .btn-main, .btn-ghost {
+      padding:0.7rem 1.4rem; border-radius:999px; font-size:0.88rem;
+      border:1px solid #111; text-transform:uppercase; letter-spacing:0.12em;
+      background:#111; color:#fff;
+    }
+    .btn-main:hover { background:#000; }
+    .btn-ghost {
+      background:#fff; color:#111;
+    }
+    .btn-ghost:hover { background:#f3f3f3; }
+
+    .hero-right {
+      border:1px solid #e5e5e5; padding:1.4rem;
+      display:flex; flex-direction:column; justify-content:space-between;
+      min-height:220px;
+    }
+    .hero-tagline {
+      text-transform:uppercase; font-size:0.75rem; letter-spacing:0.18em; opacity:0.7;
+      margin-bottom:0.6rem;
+    }
+    .hero-card-text {
+      font-size:0.85rem; opacity:0.85; line-height:1.5;
+    }
+    .hero-card-label {
+      font-size:0.75rem; text-transform:uppercase; letter-spacing:0.12em; opacity:0.65;
+      margin-top:1.2rem;
+    }
+
+    /* SECTION TITLES */
+    .section-meta {
+      display:flex; justify-content:space-between; align-items:center;
+      margin-top:1.9rem; margin-bottom:0.4rem;
+      font-size:0.8rem; text-transform:uppercase; letter-spacing:0.16em; opacity:0.7;
+    }
+    .section-meta span:last-child { font-size:0.7rem; opacity:0.7; }
+
+    .section-heading { font-size:1.2rem; margin-bottom:0.7rem; }
+
+    /* CATEGORIES */
+    .categories {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+      gap:1rem; margin-bottom:0.7rem;
+    }
+    .category-card {
+      border:1px solid #e5e5e5; padding:0.9rem;
+      display:flex; flex-direction:column; justify-content:space-between;
+      min-height:130px; background:#fafafa;
+    }
+    .category-name {
+      text-transform:uppercase; letter-spacing:0.14em; font-size:0.8rem; margin-bottom:0.5rem;
+    }
+    .category-text { font-size:0.8rem; opacity:0.75; }
+    .category-link { margin-top:0.6rem; font-size:0.78rem; text-transform:uppercase; letter-spacing:0.14em; opacity:0.8; }
+
+    /* PRODUCTS */
+    .products-grid {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+      gap:1.4rem; margin-top:0.4rem;
+    }
+    .product-card {
+      border:1px solid #e5e5e5; padding:0.9rem; display:flex; flex-direction:column; gap:0.6rem;
+      background:#fff;
+    }
+    .product-image {
+      border:1px solid #f0f0f0; height:170px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:0.75rem; letter-spacing:0.16em; text-transform:uppercase; color:#777;
+      background:linear-gradient(135deg,#f9f9f9,#f3f3f3);
+    }
+    .product-top {
+      display:flex; justify-content:space-between; align-items:flex-start; gap:0.4rem;
+    }
+    .product-name { font-size:0.98rem; margin-bottom:0.15rem; }
+    .product-tag { font-size:0.78rem; opacity:0.7; }
+    .wishlist {
+      border:none; background:transparent; font-size:0.9rem; opacity:0.5;
+    }
+    .wishlist.active { opacity:1; }
+
+    .product-bottom {
+      display:flex; justify-content:space-between; align-items:center; gap:0.6rem;
+    }
+    .product-price { font-size:0.92rem; }
+    .product-size { font-size:0.78rem; opacity:0.7; }
+    .btn-sm {
+      font-size:0.78rem; padding:0.55rem 0.9rem; border-radius:999px;
+      border:1px solid #111; background:#111; color:#fff;
+      text-transform:uppercase; letter-spacing:0.12em;
+    }
+    .btn-sm.secondary { background:#fff; color:#111; }
+    .btn-sm.secondary:hover { background:#f3f3f3; }
+
+    /* MINI ACCOUNT / CART PANEL */
+    .panel {
+      border:1px solid #e5e5e5; padding:0.9rem; margin-top:1.2rem; background:#fafafa;
+      font-size:0.82rem;
+    }
+    .panel-title {
+      text-transform:uppercase; letter-spacing:0.14em; font-size:0.78rem; opacity:0.75;
+      margin-bottom:0.6rem;
+    }
+    .cart-line {
+      display:flex; justify-content:space-between; margin-bottom:0.35rem;
+    }
+    .cart-total {
+      border-top:1px solid #e5e5e5; margin-top:0.45rem; padding-top:0.45rem;
+      display:flex; justify-content:space-between;
+    }
+
+    .account-row { display:flex; gap:0.4rem; align-items:center; margin-bottom:0.35rem; }
+    .account-label { opacity:0.7; }
+
+    /* CHECKOUT */
+    .checkout-grid {
+      display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);
+      gap:1.4rem; margin-top:1.8rem;
+    }
+    .checkout-box {
+      border:1px solid #e5e5e5; padding:0.9rem; background:#fff; font-size:0.85rem;
+    }
+    .checkout-box label {
+      font-size:0.78rem; opacity:0.7; display:block; margin-bottom:0.2rem;
+      text-transform:uppercase; letter-spacing:0.12em;
+    }
+    .checkout-box input, .checkout-box select {
+      width:100%; padding:0.5rem 0.6rem; margin-bottom:0.6rem;
+      border:1px solid #dddddd; font-size:0.85rem; border-radius:4px;
+    }
+    .pay-note { font-size:0.76rem; opacity:0.7; margin-top:0.45rem; }
+
+    footer {
+      border-top:1px solid #e5e5e5; font-size:0.78rem; opacity:0.75;
+      display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;
+      margin-top:2.2rem; padding-top:0.9rem; padding-bottom:1.7rem;
+    }
+
+    @media (max-width:900px) {
+      .hero { grid-template-columns:1fr; }
+      .checkout-grid { grid-template-columns:1fr; }
+    }
+    @media (max-width:700px) {
+      .nav-center { display:none; }
+      header, main, footer { padding:1rem 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="top-bar">
+    <div class="logo">CLASSY OUTFITS</div>
+    <nav class="nav-center">
+      <a href="#new">New Arrivals</a>
+      <a href="#shop">Shop</a>
+      <a href="#categories">Essentials</a>
+      <a href="#about">About</a>
+    </nav>
+    <div class="nav-right">
+      <button class="nav-icon-btn" type="button" onclick="alert('Basic account panel – extend later.')">
+        <span class="icon">👤</span><span>Account</span>
+      </button>
+      <button class="nav-icon-btn" type="button" onclick="scrollToCart()">
+        <span class="icon">🛒</span><span id="cart-count-label">Cart (0)</span>
+      </button>
+    </div>
+  </div>
+
+  <section class="hero" id="new">
+    <div>
+      <div class="hero-main-title">Monochrome drop · 2025</div>
+      <h1 class="hero-title">Minimal streetwear in black & white only.</h1>
+      <p class="hero-sub">
+        Classy Outfits is a monochrome-first clothing label. Tees, hoodies and cargos built around 
+        clean lines, no noise – just black, white and sharp silhouettes, priced in INR.
+      </p>
+      <div class="hero-cta">
+        <a href="#shop"><button class="btn-main" type="button">Shop the collection</button></a>
+        <a href="#about"><button class="btn-ghost" type="button">Read our story</button></a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div>
+        <div class="hero-tagline">New: Mono Capsule 01</div>
+        <p class="hero-card-text">
+          Curated essentials for your everyday fits – oversized mono tees, heavyweight hoodies and
+          straight-fit cargos. Designed in India, made for late nights and early lectures.
+        </p>
+      </div>
+      <div class="hero-card-label">Free shipping above ₹1,999 · COD & UPI ready</div>
+    </div>
+  </section>
+</header>
+
+<main>
+  <!-- CATEGORIES -->
+  <section id="categories">
+    <div class="section-meta">
+      <span>Shop by category</span>
+      <span>Tees · Hoodies · Bottoms · Accessories</span>
+    </div>
+    <h2 class="section-heading">Build your monochrome wardrobe.</h2>
+
+    <div class="categories">
+      <div class="category-card">
+        <div>
+          <div class="category-name">Oversized tees</div>
+          <p class="category-text">Soft cotton, relaxed fits, crisp prints in black and white only.</p>
+        </div>
+        <a href="#shop" class="category-link">View tees →</a>
+      </div>
+      <div class="category-card">
+        <div>
+          <div class="category-name">Hoodies & sweatshirts</div>
+          <p class="category-text">Heavyweight fleece for late-night coding and cold bus rides.</p>
+        </div>
+        <a href="#shop" class="category-link">View hoodies →</a>
+      </div>
+      <div class="category-card">
+        <div>
+          <div class="category-name">Cargos & bottoms</div>
+          <p class="category-text">Straight-fit cargos in deep black and off-white, everyday ready.</p>
+        </div>
+        <a href="#shop" class="category-link">View bottoms →</a>
+      </div>
+      <div class="category-card">
+        <div>
+          <div class="category-name">Caps & add-ons</div>
+          <p class="category-text">Caps and small accessories that match every black-and-white fit.</p>
+        </div>
+        <a href="#shop" class="category-link">View accessories →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS + CART PANEL -->
+  <section id="shop">
+    <div class="section-meta">
+      <span>Featured products</span>
+      <span>All prices in INR</span>
+    </div>
+    <h2 class="section-heading">Classy Outfits · Mono Capsule 01</h2>
+
+    <div class="products-grid" id="products"></div>
+
+    <div class="panel" id="cart-panel">
+      <div class="panel-title">Cart preview</div>
+      <div id="cart-items-empty">Your cart is empty. Add a piece to see it here.</div>
+      <div id="cart-items"></div>
+      <div class="cart-total" id="cart-total-row" style="display:none;">
+        <span>Total (incl. items only)</span>
+        <strong id="cart-total">₹0</strong>
+      </div>
+    </div>
+
+    <div class="panel" id="account-panel">
+      <div class="panel-title">Quick account</div>
+      <div class="account-row">
+        <span class="account-label">Status:</span>
+        <span>Guest · no login (demo)</span>
+      </div>
+      <div class="account-row">
+        <span class="account-label">Wishlist items:</span>
+        <span id="wishlist-count">0</span>
+      </div>
+      <div class="account-row">
+        <span class="account-label">Region / currency:</span>
+        <span>India · INR</span>
+      </div>
+      <button class="btn-sm secondary" type="button" onclick="alert('In a real app, this opens login / signup modal.')">
+        Sign in / Sign up
+      </button>
+    </div>
+  </section>
+
+  <!-- CHECKOUT -->
+  <section id="checkout-section">
+    <div class="section-meta">
+      <span>Secure checkout</span>
+      <span>UPI · Cards · Netbanking (via gateway)</span>
+    </div>
+    <h2 class="section-heading">Place your order in INR.</h2>
+
+    <div class="checkout-grid">
+      <div class="checkout-box">
+        <div class="panel-title" style="margin-bottom:0.7rem;">Shipping details</div>
+        <label for="name">Full name</label>
+        <input id="name" type="text" placeholder="Your name" />
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="you@example.com" />
+        <label for="phone">Phone (for delivery)</label>
+        <input id="phone" type="tel" placeholder="+91-XXXXXXXXXX" />
+        <label for="address">Address</label>
+        <input id="address" type="text" placeholder="Flat, Street, Area" />
+        <input id="city" type="text" placeholder="City" />
+        <input id="pin" type="text" placeholder="PIN code" />
+      </div>
+
+      <div class="checkout-box">
+        <div class="panel-title" style="margin-bottom:0.7rem;">Order summary</div>
+        <div class="cart-line">
+          <span>Items total</span><span id="summary-items">₹0</span>
+        </div>
+        <div class="cart-line">
+          <span>Shipping</span><span id="summary-shipping">₹0</span>
+        </div>
+        <div class="cart-line">
+          <span>Estimate (India only)</span><span id="summary-note">Standard delivery</span>
+        </div>
+        <div class="cart-total">
+          <span>Payable amount</span><strong id="summary-total">₹0</strong>
+        </div>
+
+        <button class="btn-main" type="button" id="pay-btn">
+          Pay securely in INR
+        </button>
+        <p class="pay-note">
+          This button simulates a Razorpay/UPI checkout. To go live, connect this with your own
+          gateway keys and backend order API as per Razorpay / Paytm docs.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-meta">
+      <span>About Classy Outfits</span>
+      <span>Monochrome-only clothing label</span>
+    </div>
+    <p style="font-size:0.9rem; max-width:650px; opacity:0.8; line-height:1.5; margin-top:0.4rem;">
+      Classy Outfits was created for people who live in black and white. Every drop focuses on
+      structure, fit and fabric – not loud colours. Small batches, thoughtful silhouettes and
+      simple pieces that work with everything you already own.
+    </p>
+  </section>
+</main>
+
+<footer>
+  <span>© <span id="year"></span> Classy Outfits. All rights reserved.</span>
+  <span>Made with a white, minimal theme · Prices in INR.</span>
+</footer>
+
+<script>
+  const products = [
+    {
+      id: 1,
+      name: "Mono Oversized Tee",
+      price: 999,
+      tag: "Unisex · 240 GSM · Black",
+      sizes: ["S","M","L","XL"]
+    },
+    {
+      id: 2,
+      name: "Contrast Logo Tee",
+      price: 1099,
+      tag: "White base · Black print",
+      sizes: ["S","M","L","XL"]
+    },
+    {
+      id: 3,
+      name: "Shadow Hoodie",
+      price: 1999,
+      tag: "Heavyweight fleece · Black",
+      sizes: ["M","L","XL"]
+    },
+    {
+      id: 4,
+      name: "Straight Cargo Pants",
+      price: 1799,
+      tag: "Relaxed fit · Black",
+      sizes: ["28","30","32","34"]
+    },
+    {
+      id: 5,
+      name: "Everyday Logo Cap",
+      price: 699,
+      tag: "Adjustable · Black",
+      sizes: ["Free size"]
+    },
+    {
+      id: 6,
+      name: "Off-White Utility Tee",
+      price: 1199,
+      tag: "Off-white · Minimal print",
+      sizes: ["S","M","L","XL"]
+    }
+  ];
+
+  const cart = {};
+  const wishlist = new Set();
+
+  const productsContainer = document.getElementById("products");
+  const cartItemsContainer = document.getElementById("cart-items");
+  const cartItemsEmpty = document.getElementById("cart-items-empty");
+  const cartTotalRow = document.getElementById("cart-total-row");
+  const cartTotalEl = document.getElementById("cart-total");
+  const cartCountLabel = document.getElementById("cart-count-label");
+  const wishlistCount = document.getElementById("wishlist-count");
+
+  const summaryItems = document.getElementById("summary-items");
+  const summaryShipping = document.getElementById("summary-shipping");
+  const summaryTotal = document.getElementById("summary-total");
+  const summaryNote = document.getElementById("summary-note");
+
+  function formatINR(amount) {
+    return "₹" + amount.toLocaleString("en-IN");
+  }
+
+  function renderProducts() {
+    productsContainer.innerHTML = "";
+    products.forEach(p => {
+      const card = document.createElement("div");
+      card.className = "product-card";
+      const sizes = p.sizes.join(" / ");
+      const isWish = wishlist.has(p.id);
+      card.innerHTML = `
+        <div class="product-image">PRODUCT IMAGE · B/W</div>
+        <div class="product-top">
+          <div>
+            <div class="product-name">${p.name}</div>
+            <div class="product-tag">${p.tag}</div>
+          </div>
+          <button class="wishlist ${isWish ? "active" : ""}" type="button" onclick="toggleWishlist(${p.id})">
+            ${isWish ? "♥" : "♡"}
+          </button>
+        </div>
+        <div class="product-bottom">
+          <div>
+            <div class="product-price">${formatINR(p.price)}</div>
+            <div class="product-size">Sizes: ${sizes}</div>
+          </div>
+          <button class="btn-sm" type="button" onclick="addToCart(${p.id})">Add to cart</button>
+        </div>
+      `;
+      productsContainer.appendChild(card);
+    });
+  }
+
+  function toggleWishlist(id) {
+    if (wishlist.has(id)) wishlist.delete(id);
+    else wishlist.add(id);
+    wishlistCount.textContent = wishlist.size;
+    renderProducts();
+  }
+
+  function addToCart(id) {
+    const product = products.find(p => p.id === id);
+    if (!product) return;
+    if (!cart[id]) {
+      cart[id] = { ...product, qty: 1 };
+    } else {
+      cart[id].qty += 1;
+    }
+    renderCart();
+  }
+
+  function renderCart() {
+    const items = Object.values(cart);
+    if (!items.length) {
+      cartItemsEmpty.style.display = "block";
+      cartItemsContainer.innerHTML = "";
+      cartTotalRow.style.display = "none";
+      cartCountLabel.textContent = "Cart (0)";
+      updateSummary(0);
+      return;
+    }
+    cartItemsEmpty.style.display = "none";
+
+    let total = 0;
+    let count = 0;
+    cartItemsContainer.innerHTML = "";
+    items.forEach(item => {
+      const line = document.createElement("div");
+      line.className = "cart-line";
+      const itemTotal = item.price * item.qty;
+      total += itemTotal;
+      count += item.qty;
+      line.innerHTML = `
+        <span>${item.name} × ${item.qty}</span>
+        <span>${formatINR(itemTotal)}</span>
+      `;
+      cartItemsContainer.appendChild(line);
+    });
+    cartTotalRow.style.display = "flex";
+    cartTotalEl.textContent = formatINR(total);
+    cartCountLabel.textContent = "Cart (" + count + ")";
+    updateSummary(total);
+  }
+
+  function updateSummary(itemsTotal) {
+    const shipping = itemsTotal === 0 ? 0 : (itemsTotal >= 1999 ? 0 : 99);
+    summaryItems.textContent = formatINR(itemsTotal);
+    summaryShipping.textContent = formatINR(shipping);
+    summaryTotal.textContent = formatINR(itemsTotal + shipping);
+    summaryNote.textContent = shipping === 0 ? "Free shipping in India" : "Standard shipping in India";
+  }
+
+  function scrollToCart() {
+    document.getElementById("cart-panel").scrollIntoView({ behavior: "smooth" });
+  }
+
+  document.getElementById("pay-btn").addEventListener("click", function () {
+    if (!Object.keys(cart).length) {
+      alert("Your cart is empty.");
+      return;
+    }
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const address = document.getElementById("address").value.trim();
+    const city = document.getElementById("city").value.trim();
+    const pin = document.getElementById("pin").value.trim();
+
+    if (!name || !email || !phone || !address || !city || !pin) {
+      alert("Please fill all shipping details before paying.");
+      return;
+    }
+
+    const itemsTotal = Object.values(cart).reduce((sum, item) => sum + item.price * item.qty, 0);
+    const shipping = itemsTotal >= 1999 ? 0 : 99;
+    const payable = itemsTotal + shipping;
+
+    alert(
+      "Demo only: this would open Razorpay/UPI checkout for " +
+      formatINR(payable) +
+      " in INR for " + name +
+      ".\\n\\nTo go live: connect this button to your payment gateway backend (orders API, verify payment, etc.)."
+    );
+  });
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  renderProducts();
+  renderCart();
+</script>
+</body>
+</html>
+git add classy outfits.html 
+git commit -m classy outfits.html 
+git push origin main 
